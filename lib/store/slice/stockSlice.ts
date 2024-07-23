@@ -5,6 +5,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: StockEvent|any = {
     stockData: null,
     selectedSymbol: null,
+    open: false
 };
 
 const stockSlice = createSlice({
@@ -16,6 +17,9 @@ const stockSlice = createSlice({
     },
     setSelectedSymbol(state, action: PayloadAction<string>) {
       state.selectedSymbol = action.payload;
+    },
+    setOpen(state, action: PayloadAction<boolean>) {
+      state.open = action.payload;
     },
   },
 });

@@ -69,18 +69,18 @@ function SimpleDialog(props: SimpleDialogProps) {
 const TableComponent = () => {
   const dispatch = useDispatch();
   let data = useSelector((state: RootState) => state.stockReducer.stockData);
+  let open = useSelector((state: RootState) => state.stockReducer.open);
   let selectedSymbol = useSelector(
     (state: RootState) => state.stockReducer.selectedSymbol
   );
 
-  const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    dispatch(stockAction.setOpen(true));
   };
 
   const handleClose = (value: string) => {
-    setOpen(false);
+    dispatch(stockAction.setOpen(true));
     dispatch(stockAction.setSelectedSymbol(value));
     localStorage.setItem("symbol", value);
     // fetchStocks(value)
